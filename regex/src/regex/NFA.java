@@ -93,7 +93,7 @@ public class NFA {
 			  layerOfBracket--;
 			  separationLayer = layerOfBracket;
 		  }
-		  else if(currentCharacter.charValue()=='*'){
+		  else if(currentCharacter.charValue()=='+'){
 			  //*无非就是多增加几条边
 			      for(int j=currentSeparation[layerOfBracket];j<numOfSeparation[layerOfBracket];j++){
 				      NFAnode  node = nodeList[lastSeparation[layerOfBracket]].next;
@@ -151,7 +151,7 @@ public class NFA {
   } 
   
   public static void main(String args[]){
-	  NFA nfa = new NFA("abc(a|b|c)*cba");
+	  NFA nfa = new NFA("abc(a|b|c)+cba");
 	  nfa.print();
 	  Scanner scanner = new Scanner(System.in);
 	  while(true){	      
